@@ -68,9 +68,9 @@ RCT_EXPORT_METHOD(show:(NSDictionary*)options resolver:(RCTPromiseResolveBlock)r
         request.vaultManager = YES;
     }
 
-    if([options[@"cardDisabled"] boolValue]){
-        request.cardDisabled = YES;
-    }
+//     if([options[@"cardDisabled"] boolValue]){
+//         request.cardDisabled = YES;
+//     }
 
     if([options[@"applePay"] boolValue]){
         NSString* merchantIdentifier = options[@"merchantIdentifier"];
