@@ -67,13 +67,17 @@ public class RNBraintreeDropInModule extends ReactContextBaseJavaModule {
           .googleMerchantId(options.getString("googlePayMerchantId"));
 
       dropInRequest.googlePaymentRequest(googlePaymentRequest);
-    }else{
+    } else{
         dropInRequest.disableGooglePayment();
     }
 
-    // if(options.hasKey("cardDisabled")) {
-    //   dropInRequest.disableCard();
-    // }
+    if(options.getBoolean("cardDisabled")) {
+      dropInRequest.disableCard();
+    }
+
+    if(options.getBoolean("paypalDisabled")) {
+        dropInRequest.disablePayPal();
+    }
 
     if (options.hasKey("threeDSecure")) {
       final ReadableMap threeDSecureOptions = options.getMap("threeDSecure");
