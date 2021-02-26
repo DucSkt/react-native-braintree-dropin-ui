@@ -20,6 +20,7 @@ import com.braintreepayments.api.models.ThreeDSecureInfo;
 import com.braintreepayments.api.models.GooglePaymentRequest;
 import com.google.android.gms.wallet.TransactionInfo;
 import com.google.android.gms.wallet.WalletConstants;
+import com.braintreepayments.cardform.view.CardForm;
 
 public class RNBraintreeDropInModule extends ReactContextBaseJavaModule {
 
@@ -48,7 +49,7 @@ public class RNBraintreeDropInModule extends ReactContextBaseJavaModule {
       return;
     }
 
-    DropInRequest dropInRequest = new DropInRequest().clientToken(options.getString("clientToken"));
+    DropInRequest dropInRequest = new DropInRequest().clientToken(options.getString("clientToken")).cardholderNameStatus(CardForm.FIELD_OPTIONAL);
 
     if(options.hasKey("vaultManager")) {
       dropInRequest.vaultManager(options.getBoolean("vaultManager"));
